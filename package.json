@@ -1,0 +1,39 @@
+{
+  "name": "json-formatter",
+  "version": "1.0.0",
+  "description": "simple json formatter ",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"lib/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "keywords": [
+    "json",
+    "formatter",
+    "object",
+    "pretty",
+    "print"
+  ],
+  "author": "Yasin Farmani",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-loader": "^8.0.11",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.1.2"
+  }
+}
